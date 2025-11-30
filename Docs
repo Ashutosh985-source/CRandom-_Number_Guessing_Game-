@@ -1,1 +1,57 @@
+School of Computer Science – Programming in C
+Major Project Report
 
+Random Number Guessing Game
+
+University of Petroleum and Energy Studies
+Course Code: CSEG1032
+Instructor: Dr. Tanu Singh
+Student: [Your Name]
+
+1. Title Page
+[Insert title, name, etc.]
+
+2. Abstract
+This project develops a random number guessing game in C that demonstrates core programming concepts including control structures, functions, arrays, pointers, structures, dynamic memory, and file handling. The game generates a random number, processes user guesses with feedback, tracks attempts dynamically, and manages high scores persistently via files.
+
+3. Problem Definition
+The objective is to create an interactive game where the user guesses a randomly generated number (1-100). The program provides hints, counts guesses, stores guess history dynamically, handles invalid inputs, and maintains a high score leaderboard saved to a file. This integrates all course units for a comprehensive application.
+
+4. System Design (Flowcharts, Algorithms)
+Algorithm:
+- Load high scores from file using pointers and display sorted list.
+- Seed random generator and pick number.
+- Loop: Read guess (handle invalid with scanf check), store in dynamic array (realloc), provide feedback, increment attempts.
+- On success: Display attempts and guess history (array).
+- Get name, create Player struct, append to file.
+- Free all allocated memory.
+
+Flowchart: [Describe or insert image: Start -> Load Scores -> Display -> Game Loop (Guess -> Check -> Feedback) -> Win -> Save Score -> End]
+
+5. Implementation Details (with snippets)
+// Example: Dynamic array for guesses
+if (attempts > capacity) {
+    capacity = attempts * 2;
+    guesses = realloc(guesses, capacity * sizeof(int));
+}
+// Structure and file I/O
+typedef struct { char name[50]; int guesses; } Player;
+fprintf(fp, "%s %d\n", p.name, p.guesses);
+
+The code is modular: main.c handles entry, game.c contains logic. Headers in include/.
+
+6. Testing & Results
+Test Case 1: Valid guesses (input: 50, 75, 63 for number 63) -> Output: Too low, Too high, Correct in 3 attempts.
+Test Case 2: Invalid input (input: abc, 50) -> Output: Invalid input, then proceed.
+Test Case 3: High scores - After multiple runs, loads and sorts correctly, no crashes.
+Handles edge cases: 1 guess win, max attempts, file not found.
+
+7. Conclusion & Future Work
+The project successfully integrates C concepts into a functional game. Future enhancements: Multi-player mode, difficulty levels, GUI integration.
+
+8. References
+- C Programming Language by Kernighan & Ritchie
+- stdlib.h, time.h documentation from cppreference.com
+
+9. Appendix (optional)
+Full code listings.
