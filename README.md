@@ -1,1 +1,1 @@
-
+A simple C program where the computer generates a random number, and the player tries to guess it. The game gives hints like “Too high” or “Too low” until the correct number is guessed. Designed for beginners learning loops, conditionals, and random number generation in C.
